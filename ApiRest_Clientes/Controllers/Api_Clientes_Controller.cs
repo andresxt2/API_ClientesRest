@@ -26,18 +26,21 @@ namespace ApiRest_Clientes.Controllers
         }
 
         // POST: api/Api_Clientes_
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Clientes cliente)
         {
+            logica.InsertarCliente(cliente);
         }
 
         // PUT: api/Api_Clientes_/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]Clientes cliente)
         {
+            logica.ActualizarCliente(cliente);
         }
 
         // DELETE: api/Api_Clientes_/5
-        public void Delete(int id)
+        public bool Delete([FromBody]Clientes cliente)
         {
+            return logica.EliminarCliente(cliente);
         }
     }
 }
